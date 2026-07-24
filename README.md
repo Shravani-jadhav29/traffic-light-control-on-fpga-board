@@ -1,36 +1,56 @@
-Traffic Light Controller on Nexys A7 🚦
+## 🚦 Traffic Light Controller on Nexys A7
 
-The Traffic Light Controller is an FPGA-based digital design project implemented on the Nexys A7 (Artix-7) development board using Verilog HDL. The project simulates the operation of a real-world traffic signal system by controlling the sequence of Red, Yellow, and Green lights using a Finite State Machine (FSM). Each traffic signal remains active for a predefined duration, ensuring a safe and organized flow of vehicles through an intersection.
+The **Traffic Light Controller** is a real-time FPGA-based digital system developed on the **Nexys A7 (Artix-7)** FPGA board using **Verilog HDL**. The project replicates the operation of a real-world traffic signal at a four-way road intersection by automatically controlling the **Red, Yellow, and Green** lights through a **Finite State Machine (FSM)**. The controller ensures that traffic flows safely by allowing only one direction to receive a green signal at a time while all conflicting directions remain stopped.
 
-The design uses the Nexys A7's onboard 100 MHz system clock, which is divided to generate timing intervals suitable for traffic signal operation. A clock divider module creates slower timing pulses, while the FSM transitions between different traffic light states based on these timing events. The outputs of the FSM are connected to the board's onboard LEDs, allowing the current traffic signal status to be observed directly on the FPGA hardware.
+Built with a **modular hardware architecture**, the design consists of a **clock divider**, **FSM controller**, and **LED output module**. The onboard **100 MHz system clock** is divided into slower timing intervals to simulate realistic traffic light delays. Based on these timing signals, the FSM transitions through predefined traffic states, generating synchronized control signals for each traffic light. The onboard LEDs of the Nexys A7 visually represent the active traffic signals, providing an intuitive demonstration of the controller's operation in hardware.
 
-The controller follows the standard traffic light sequence:
+The project follows the standard traffic signal sequence:
 
-North–South Green, East–West Red
-North–South Yellow, East–West Red
-North–South Red, East–West Green
-North–South Red, East–West Yellow
+* 🟢 **North–South Green** → 🔴 East–West Red
+* 🟡 **North–South Yellow** → 🔴 East–West Red
+* 🔴 **North–South Red** → 🟢 East–West Green
+* 🔴 **North–South Red** → 🟡 East–West Yellow
 
-This sequence repeats continuously, ensuring that only one direction receives a green signal at a time while the other direction remains stopped, preventing traffic conflicts.
+This sequence repeats continuously, ensuring safe and collision-free traffic movement while demonstrating deterministic state transitions in digital hardware.
 
-The project was designed, simulated, synthesized, and implemented using Xilinx Vivado. Functional verification was performed through simulation to validate the FSM transitions and output behavior before programming the FPGA. After implementation, the design was tested on the Nexys A7 board to verify correct operation under real hardware conditions.
+The entire system was **designed, simulated, synthesized, and implemented using Xilinx Vivado**. Functional verification was performed through simulation and waveform analysis before deploying the design to the Nexys A7 FPGA, where its operation was validated in real hardware.
 
-This project demonstrates several important concepts in digital system design, including:
+---
 
-Finite State Machine (FSM) design
-Sequential logic implementation
-Clock division and timing generation
-Synchronous digital circuit design
-FPGA implementation and hardware verification
-Verilog HDL coding and simulation using Vivado
-Features
-🚦 Finite State Machine (FSM)-based traffic light controller
-⏱️ Configurable timing using a clock divider
-💡 LED-based traffic signal indication on the Nexys A7 board
-🔄 Automatic and continuous traffic light sequencing
-⚙️ Synchronous design using the onboard 100 MHz clock
-🧪 Functional simulation and waveform verification
-🛠️ Synthesized and implemented using Xilinx Vivado
-📚 Modular Verilog design for easy modification and future enhancements
+## ✨ Key Features
 
-This project serves as an excellent introduction to FPGA-based embedded digital systems and demonstrates how finite state machines can be used to implement reliable real-time control applications such as traffic management.
+* 🚦 **FSM-based** traffic signal control
+* ⏱️ **Programmable timing** using a clock divider
+* 💡 **Real-time LED visualization** of traffic lights
+* 🔄 Automatic cyclic operation with synchronized state transitions
+* ⚡ Fully synchronous design driven by the onboard **100 MHz** clock
+* 🧩 Modular Verilog HDL implementation for easy maintenance and scalability
+* 🧪 Functional simulation and hardware validation using **Xilinx Vivado**
+* 📚 Clean and reusable architecture suitable for learning FPGA design concepts
+
+---
+
+## 🛠️ Technologies Used
+
+* **FPGA Board:** Nexys A7 (Artix-7)
+* **HDL:** Verilog HDL
+* **Design Tool:** Xilinx Vivado
+* **Design Methodology:** Finite State Machine (FSM)
+* **Clock Source:** 100 MHz Onboard Oscillator
+* **Output Device:** Onboard LEDs
+
+---
+
+## 🎯 Learning Outcomes
+
+This project provides practical experience with:
+
+* Finite State Machine (FSM) design
+* Sequential digital logic
+* Clock division and timing generation
+* FPGA implementation and hardware debugging
+* Verilog HDL coding and simulation
+* Digital system verification using Vivado
+* Real-time embedded hardware control
+
+> **This project demonstrates how FPGA technology can be used to build reliable, deterministic, and scalable real-time control systems, making it an excellent foundation for more advanced applications such as adaptive traffic management, smart city infrastructure, and intelligent transportation systems.**
